@@ -1,0 +1,28 @@
+### GET all the workouts
+GET http://localhost:3000/api/workouts/
+
+### GET a single workout
+GET http://localhost:3000/api/workouts/64ce8473acc4b13305c01e40
+
+### POST(create) a workout
+POST http://localhost:3000/api/workouts/
+Content-Type: application/json
+
+{
+    "title": "bicep curls",
+    "reps": 12,
+    "weight": 10
+}
+
+### POST(update) a workout
+PATCH http://localhost:3000/api/workouts/64ce6a54949f40c44896b7da
+Content-Type: application/json
+
+{
+    "title": "squats",
+    "reps": 20,
+    "weight": 12
+}
+
+### DELETE a workout
+DELETE http://localhost:3000/api/workouts/64ce8473acc4b13305c01e40
