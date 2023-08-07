@@ -1,18 +1,13 @@
 import express from 'express'
-// user model for mongoose
-import User from '../models/userModel.js'
+import { userLogin, userSignup } from '../controllers/userController.js'
 
 // userRouter
 const userRouter = express.Router()
 
 // login
-userRouter.post('/login', (req, res) => {
-    res.json({ msg: 'user logged in successfully' })
-})
+userRouter.post('/login', userLogin)
 
 // signup
-userRouter.post('/signup', (req, res) => {
-    res.json({ msg: 'user signed up successfully' })
-})
+userRouter.post('/signup', userSignup)
 
 export default userRouter
