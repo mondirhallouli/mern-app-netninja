@@ -3,6 +3,7 @@ import cors from 'cors'
 import express from "express";
 import workoutsRouter from './routes/workoutsRouter.js';
 import mongoose from 'mongoose';
+import userRouter from './routes/userRouter.js';
 
 // env variables
 const PORT = process.env.PORT
@@ -26,3 +27,6 @@ app.use((req, res, next) => {
 
 // workouts routes
 app.use('/api/workouts', workoutsRouter)
+
+// user routes
+app.use('/api/user', userRouter)

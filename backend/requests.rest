@@ -26,3 +26,21 @@ Content-Type: application/json
 
 ### DELETE a workout
 DELETE http://localhost:3000/api/workouts/64ce8473acc4b13305c01e40
+
+### LOGIN a user
+POST http://localhost:3000/api/user/login
+Content-Type: application/json
+
+{
+    "email": "luffy@sunny.go",
+    "password": "kingofpirates"
+}
+
+### SIGNUP a user
+POST http://localhost:3000/api/user/signup
+Content-Type: application/json
+
+{
+    "email": "zoro@sunny.go",
+    "password": "kingofswordsmen"
+}
