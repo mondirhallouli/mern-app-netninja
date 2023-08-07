@@ -41,6 +41,6 @@ POST http://localhost:3000/api/user/signup
 Content-Type: application/json
 
 {
-    "email": "brook@sunny.go",
-    "password": "SoulKing5!"
+    "email": "sanji@sunny.go",
+    "password": "blondCook7!"
 }
