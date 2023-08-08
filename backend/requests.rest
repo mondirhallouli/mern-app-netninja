@@ -32,8 +32,8 @@ POST http://localhost:3000/api/user/login
 Content-Type: application/json
 
 {
-    "email": "luffy@sunny.go",
-    "password": "kingofpirates"
+    "email": "sanji@sunny.go",
+    "password": "blondCook7!"
 }
 
 ### SIGNUP a user

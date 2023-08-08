@@ -46,6 +46,21 @@ userSchema.statics.signup = async function (email, password) {
     return user
 }
 
+// login user static method
+userSchema.statics.login = async function (email, password) {
+    // check if the user exists using email
+    const user = await this.findOne({ email })
+
+    if (!user) throw Error('Email is incorrect')
+    // compare the password with db
+    const match = await bcrypt.compare(password, user.password)
+
+    if (!match) throw Error('Password is incorrect')
+
+    // return user
+    return user
+}
+
 // user model
 const User = mongoose.model('User', userSchema)
 
