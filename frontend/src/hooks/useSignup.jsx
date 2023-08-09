@@ -10,6 +10,8 @@ export default function useSignup() {
 
         // start showing the login state
         setLoading(true)
+        // reset the error state
+        setError(null)
 
         // make a post request to the api
         const response = await fetch('http://localhost:3000/api/user/signup', {
