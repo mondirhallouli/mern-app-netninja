@@ -6,9 +6,13 @@ import {
     updateWorkout,
     deleteWorkout,
 } from '../controllers/workoutController.js'
+import checkLogin from '../middleware/checkLogin.js'
 
 // router
 const workoutsRouter = express.Router()
+
+// check login first
+workoutsRouter.use(checkLogin)
 
 // get all workouts 
 workoutsRouter.get('/', getWorkouts)
