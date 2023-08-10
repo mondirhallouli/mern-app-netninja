@@ -1,39 +1,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
-
-// layouts
-import AppLayout from './layouts/AppLayout.jsx'
-// react router
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-// pages
-import HomePage from './pages/HomePage'
-import Login from './pages/Login'
-import Signup from './pages/Signup'
-
-const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <AppLayout />,
-        children: [
-            {
-                index: true,
-                element: <HomePage />,
-            },
-            {
-                path: "/login",
-                element: <Login />,
-            },
-            {
-                path: "/signup",
-                element: <Signup />,
-            },
-        ],
-    },
-])
+import App from './App'
+import { WorkoutContextProvider } from './context/WorkoutsContext'
+import { AuthContextProvider } from './context/AuthContext'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
-        <RouterProvider router={router} />
+        <AuthContextProvider>
+            <WorkoutContextProvider>
+                <App />
+            </WorkoutContextProvider>
+        </AuthContextProvider>
     </React.StrictMode>,
 )

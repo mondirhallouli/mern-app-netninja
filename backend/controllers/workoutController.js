@@ -5,7 +5,9 @@ import mongoose from "mongoose";
 // get all the workouts
 export async function getWorkouts(req, res) {
     try {
-        const response = await Workout.find({}).sort({ createdAt: -1 })
+        // get the user _id from the request given by the checkLogin function
+        const user_id = req.user
+        const response = await Workout.find({ user_id }).sort({ createdAt: -1 })
         res.json(response)
     } catch (error) {
         res.status(400).json({ error: error.message })
@@ -39,7 +41,9 @@ export async function createWorkout(req, res) {
     if (!weight) emptyFields.push('weight')
 
     try {
-        const response = await Workout.create({ title, reps, weight })
+        // get the user id from the request, set by the checkLogin middleware
+        const user_id = req.user
+        const response = await Workout.create({ title, reps, weight, user_id })
         res.json(response)
     } catch (error) {
         res.status(400).json({ error: "please fill all fields", emptyFields })
